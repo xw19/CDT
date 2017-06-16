@@ -1,6 +1,6 @@
 class Dealer::ModelsController < ApplicationController
   before_action :authenticate_dealer!
-  load_and_authorize_resource
+  load_and_authorize_resource except: :cars_list
 
   def new
     @model = Model.new
