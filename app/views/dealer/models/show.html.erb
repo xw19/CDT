@@ -1,0 +1,25 @@
+<h1><%=@model.car.make.name %> <%= @model.car.model %></h1>
+<div class="row">
+  <div class="col col-md-10">
+    <table class='table'>
+      <tr>
+        <td><b>Year </b></td>
+        <td><%= @model.year %></td>
+      </tr>
+      <tr>
+        <td><b>Price </b></td>
+        <td><%= number_to_currency(@model.price, currency: '$') %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="col">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <%= link_to "All Cars", dealer_dealership_path(@dealership), class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Images", dealer_dealership_model_images_path(dealership_id: @dealership.id, model_id: @model.id), class: 'nav-link' %>
+      </li>
+    </ul>
+  </div>
+</div>

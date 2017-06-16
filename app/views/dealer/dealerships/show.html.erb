@@ -1,0 +1,26 @@
+<h1><%= @dealership.name %></h1>
+<div class="row">
+  <!-- Dealer Info -->
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <h2>Cars</h2>
+    <table class='table'>
+      <% @models.each do |model| %>
+        <tr>
+          <td><%= model.car.model %></td>
+          <td><%= model.year %></td>
+          <td><%= number_to_currency(model.price, currency: '$') %></td>
+          <td><%= link_to "Edit", dealer_dealership_model_path(model) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <%= link_to 'New Car', new_dealer_dealership_model_path(@dealership) %>
+      </li>
+    </ul>
+  </div>
+</div>

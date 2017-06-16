@@ -1,0 +1,44 @@
+<h1>New Car</h1>
+
+<%= form_for @model, url: dealer_dealership_models_path do |f| %>
+  <% if @model.errors.any? %>
+    <h3>Errors</h3>
+    <ul>
+      <% @model.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="form-group">
+    <label for="make">Make</label>
+    <%= select_tag :make, options_from_collection_for_select(Make.order('code'), 'id', 'name'), include_blank: true, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :car %>
+    <%= f.select :car_id, {}, {include_blank: true}, { class: 'form-control' }%>
+  </div>
+  <div class="form-group">
+    <%= f.label :year %>
+    <%= f.text_field :year, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: 'form-control' %>
+  </div>
+  <%= f.submit "Create car", class: 'btn btn-primary' %>
+<% end %>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+  $('#make').change(function(){
+    axios.get('/dealer/dealerships/carslist?id=' + $('#make').val())
+      .then(function(response){
+        $('#model_car_id').html('')
+        $.each(response.data, function(i, data){
+          $('#model_car_id').append(
+            "<option value='" + data.id + "''>" + data.model + "</option>"
+          )
+        })
+      })
+  })
+</script>

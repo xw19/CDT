@@ -1,0 +1,2 @@
+module CarpicHelper
+end

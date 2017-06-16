@@ -1,0 +1,22 @@
+<h1>Dealerships</h1>
+
+<% if @dealership_admins.size > 0 %>
+  <h2>Admin</h2>
+  <table>
+    <% @dealership_admins.each do |dealership| %>
+      <tr>
+        <td><%= link_to dealership.name, dealer_dealership_path(dealership) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<% if @dealerships.size > 0 %>
+  <h2>Dealerships</h2>
+  <table>
+    <% @dealerships.each do |dealership| %>
+      <tr>
+        <td><%= link_to dealership.name, dealer_dealership_path(dealership) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

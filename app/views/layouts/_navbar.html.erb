@@ -1,0 +1,30 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/">CTD</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if dealer_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Dealer panel", dealer_dealerships_path, class: 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="navbar-nav mr-right">
+      <% if dealer_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_dealer_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Sign in", new_dealer_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_dealer_registration_path, class: 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

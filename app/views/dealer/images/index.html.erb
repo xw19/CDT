@@ -1,0 +1,23 @@
+<h1>Images</h1>
+<div class="row">
+  <div class="col-md-10">
+    <table class='table'>
+      <% @images.each do |image| %>
+        <tr>
+          <td><%= image.id %></td>
+          <td><%= image_tag image.image.url(:thumb) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <%= link_to "Car Details", dealer_dealership_model_path(@dealership, @model), class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Add Image", new_dealer_dealership_model_image_path(@dealership, @model), class: 'nav-link' %>
+      </li>
+    </ul>
+  </div>
+</div>
