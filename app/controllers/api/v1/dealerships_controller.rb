@@ -1,7 +1,6 @@
 class Api::V1::DealershipsController < ApplicationController
 
   def index
-    sleep 3
     @dealerships = Dealership.all
     render json: @dealerships
   end
