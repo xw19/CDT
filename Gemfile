@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem "mini_magick"
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'rails', '~> 5.1.1'
 gem "react_on_rails", "8.0.0"
 gem 'sass-rails', '~> 5.0'
