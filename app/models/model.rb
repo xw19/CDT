@@ -11,6 +11,6 @@ class Model < ApplicationRecord
     if pictures.any?
       return "https://cartruckdealerships.herokuapp.com" + pictures.first.image_url
     end
-    "http://lorempixel.com/400/300/transport/3/"
+    "https://lorempixel.com/400/300/transport/3/"
   end
 end
